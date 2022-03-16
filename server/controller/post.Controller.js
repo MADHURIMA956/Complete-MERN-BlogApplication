@@ -15,9 +15,19 @@ router.post('/', async(req,res) => {
 })
 
 router.get('/', async(req,res) => {
+       let username = req.query.username;
+       let category = req.query.category;
+       let posts;
       try{
-       const post = await Post.find({});
-       res.status(200).json(post)
+       if(username){
+              posts = await Post.find({username : username})
+       }
+       else if(category){
+              posts = await Post.find({categories : category})
+       }else {
+              posts = await Post.find({});
+       }
+       res.status(200).json(posts)
       }catch(e){
              res.status(500).json(`message : ${e}`)
       }

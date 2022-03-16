@@ -23,14 +23,20 @@ const useStyle = makeStyles({
     text:{
         color: '#878787',
         fontSize:12,
+        textDecoration:'none',
     },
     heading:{
         fontSize:18,
         fontWeight:600,
+        textAlign:'center',
+        textDecoration:'none',
+        color:'inherit'
     },
     descrp:{
         fontSize:14,
-        wordBreak: 'break-word'
+        wordBreak: 'break-word',
+        textDecoration:'none',
+        color:'inherit'
     }
 })
 

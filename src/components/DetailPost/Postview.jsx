@@ -39,6 +39,10 @@ const useStyle = makeStyles((theme) => ({
         [theme.breakpoints.down('md')]:{
             display: 'block',
         }
+    },
+    link:{
+        textDecoration:"none",
+        color: 'inherit',
     }
 }));
 const Postview = ({match} ) => {
@@ -69,7 +73,9 @@ const Postview = ({match} ) => {
         </Box>
         <Typography className={classes.title}>{post.title}</Typography>
         <Box className={classes.head}>
-             <Typography >Author : <span className={{fontWeight:600}}>{post.username}</span> </Typography>
+            <Typography >Author :
+                <Link to ={`/?username=${post.username}`} className={classes.link}>
+                <span className={{fontWeight:600}}>{post.username}</span> </Link></Typography>
              <Typography style={{marginLeft: 'auto'}} >{new Date(post.createDate).toDateString()}</Typography>
         </Box>
         <Typography >{post.description}</Typography>

@@ -8,10 +8,11 @@ export const postCreate = async (post) => {
    }
 }
 
+//for search basis of user
 
-export const getAllposts = async() => {
+export const getAllposts = async(param) => {
    try{
-      const res =  await axios.get('http://localhost:3001/posts');
+      const res =  await axios.get(`http://localhost:3001/posts${param}`); //param "/?"
       return res.data;
    }catch(e){
     console.log(`Error while calling get all Post Api ${e}`)
@@ -45,5 +46,15 @@ export const deletepost = async (id) => {
       return res.data
    }catch(e){
       console.log(`Error while calling delete post Api ${e}`)
+     }
+}
+
+
+export const uploadFile = async (data) => {
+   try{
+      const res = await axios.post(`http://localhost:3001/delete/file/upload`, data);
+      return res.data
+   }catch(e){
+      console.log(`Error while uploading image Api ${e}`)
      }
 }

@@ -29,14 +29,17 @@ const LeftSide = () => {
            <Table className={classes.table}>
                 <TableHead>
                     <TableRow>
-                        <TableCell>All Category</TableCell>
+                        <TableCell> <Link className={classes.link} to={`/`}>All Category</Link></TableCell>
+                        
                     </TableRow>   
                 </TableHead>
                 <TableBody>
                     {
                         categories.map(category => (
                             <TableRow>
-                                <TableCell>{category}</TableCell>
+                                <TableCell>
+                                    <Link className={classes.link} to={`/?category=${category}`}>{category}</Link>
+                                    </TableCell>
                             </TableRow>
                         ))
                     }
